@@ -1,0 +1,54 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+
+}
+
+/* Общие стили для параллакс-элементов */
+.parallax {
+    position: relative;
+    height: 400px;
+    background-position: center;
+    background-size: 250%;
+    /* background-position-y: 0px; */
+    /* Устанавливаем начальную позицию по Y */
+    /* background-size: cover; */
+    background-position-y: -200px;
+    /* Увеличиваем размер изображения */
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
+/* Индивидуальные фоны для каждого параллакс-элемента */
+#parallax1 {
+    background-image: url('./image.jpg');
+    opacity: 0.9;
+    /* Легкая прозрачность для улучшения эффекта */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+    /* Тень для глубины */
+}
+
+#parallax2 {
+    background-image: url('./image2.jpg');
+
+    opacity: 0.9;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+/* Контентные блоки между параллакс-элементами */
+.content {
+    height: 300px;
+    background-color: white;
+    text-align: center;
+    padding: 50px;
+    color: #333;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.parallax {
+    transition: background-position 0.1s ease-out;
+}
