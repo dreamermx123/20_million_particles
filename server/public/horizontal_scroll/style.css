@@ -1,0 +1,94 @@
+/* Убираем стандартные отступы и добавляем scroll-snap на уровне body */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    scroll-snap-type: y mandatory;
+    /* Вертикальная прокрутка по секциям */
+    overflow-x: hidden;
+    /* Убираем горизонтальную прокрутку для body */
+    scroll-behavior: smooth;
+    /* Плавная прокрутка */
+}
+
+/* Секция с вертикальной прокруткой */
+.contentBlock {
+    background-color: #3498db;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    /* Липкость вертикальной прокрутки */
+    font-size: 2rem;
+    color: white;
+}
+
+/* Обёртка для main (горизонтальный контейнер) */
+.main-wrapper {
+    height: 100vh;
+    scroll-snap-align: start;
+    /* overflow: hidden; */
+    /* Убираем эту строку */
+    position: relative;
+}
+
+/* Основной горизонтальный скроллер */
+.main {
+    width: 100vh;
+    /* Важно: высота и ширина поменяны местами */
+    height: 100vw;
+    overflow-y: scroll;
+    /* Включаем вертикальную прокрутку внутри main */
+    transform-origin: top left;
+    transform: rotate(-90deg) translateX(-100vh);
+    /* Поворот для горизонтальной прокрутки */
+    scroll-snap-type: y mandatory;
+    /* Прокрутка по горизонтальным секциям */
+    scroll-behavior: smooth;
+    /* Плавная прокрутка */
+    display: flex;
+    /* Важно для расчета ширины элементов */
+}
+
+/* Горизонтальный контент */
+.horizontal-scroll-block {
+    display: flex;
+    flex-direction: row;
+    transform-origin: top left;
+    transform: rotate(90deg) translateY(-100vh);
+    /* Возвращаем нормальное положение */
+}
+
+.horizontal-contentBlock {
+    flex: 0 0 100vw;
+    /* Каждый блок занимает всю ширину экрана */
+    height: 100vh;
+    scroll-snap-align: start;
+    /* Липкость для горизонтального скролла */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 2rem;
+    color: black;
+    backface-visibility: hidden;
+}
+
+.horizontal-contentBlock:nth-child(1) {
+    background-color: lightgreen;
+}
+
+.horizontal-contentBlock:nth-child(2) {
+    background-color: lightpink;
+}
+
+.horizontal-contentBlock:nth-child(3) {
+    background-color: lightgoldenrodyellow;
+}
+
+/* Финальный блок */
+.snap {
+    scroll-snap-align: start;
+    background-color: #2ecc71;
+}
